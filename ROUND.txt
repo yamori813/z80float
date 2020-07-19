@@ -1,0 +1,21 @@
+	TITLE	ROUND (V02/L02)
+;
+;	GLOBAL	.RND
+;
+.RND	EQU	$
+	LD	A,(DE)
+	AND	A
+	RET	P
+	AND	7FH
+	LD	(DE),A
+	INC	DE
+	LD	C,0
+	SCF
+RND1:	LD	A,(DE)
+	ADC	A,C
+	LD	(DE),A
+	INC	DE
+	DJNZ	RND1
+	RET
+;
+;	END

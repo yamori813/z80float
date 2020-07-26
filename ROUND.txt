@@ -1,6 +1,6 @@
 	TITLE	ROUND (V02/L02)
 ;
-;	GLOBAL	.RND
+	GLOBAL	.RND
 ;
 .RND	EQU	$
 	LD	A,(DE)
@@ -18,4 +18,4 @@ RND1:	LD	A,(DE)
 	DJNZ	RND1
 	RET
 ;
-;	END
+	END

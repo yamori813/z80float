@@ -1,0 +1,23 @@
+;
+; subroutine for 8251 on SBC
+;
+
+	GLOBAL	PRINT
+
+TXD:	PUSH AF
+LOPTX:	IN	A,(021H)
+        AND	001H	;TXRDY?
+	JP	Z, LOPTX
+	POP	AF
+	OUT	(020H),A
+	RET
+
+PRINT:	EQU	$
+	LD	A,(DE)
+	CP	'$'
+	JP	Z, EOL
+	CALL	TXD
+	INC	DE
+	JP	PRINT
+EOL:
+	RET

@@ -1,0 +1,12 @@
+;
+; subroutine for CP/M
+;
+
+BDOS  EQU 0005H
+
+	GLOBAL	PRINT
+
+PRINT:	EQU	$
+	LD	C,09H
+	CALL	BDOS
+	RET

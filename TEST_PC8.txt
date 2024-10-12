@@ -1,0 +1,18 @@
+;
+; subroutine for PC-8001
+;
+
+	GLOBAL	PRINT
+	GLOBAL	EXIT
+
+PRINT:	EQU	$
+	LD	A,(DE)
+	CP	'$'
+	JP	Z, EOL
+	RST	18H
+	INC	DE
+	JP	PRINT
+EOL:
+	RET
+EXIT:	EQU	$
+	JP	05C66H

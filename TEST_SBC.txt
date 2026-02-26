@@ -1,16 +1,16 @@
 ;
-; subroutine for 8251 on SBC
+; subroutine for 8251 on SBC (KBC-80SA)
 ;
 
 	GLOBAL	PRINT
 	GLOBAL	EXIT
 
 TXD:	PUSH AF
-LOPTX:	IN	A,(021H)
+LOPTX:	IN	A,(005H)
         AND	001H	;TXRDY?
 	JP	Z, LOPTX
 	POP	AF
-	OUT	(020H),A
+	OUT	(004H),A
 	RET
 
 PRINT:	EQU	$
